@@ -4,7 +4,7 @@ import { removeItem, updateQuantity } from './CartSlice';
 import './CartItem.css';
 
 const CartItem = ({ onContinueShopping }) => {
-    const cart = useSelector(state => state.cart.items);
+    const cartItems = useSelector(state => state.cart.items);
     const dispatch = useDispatch();
 
     const calculateTotalAmount = () => {
@@ -38,7 +38,7 @@ const CartItem = ({ onContinueShopping }) => {
         <div className="cart-container">
             <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
             <div>
-                {cart.map(item => (
+                {cartItems.map(item => (
                     <div className="cart-item" key={item.name}>
                         <img className="cart-item-image" src={item.image} alt={item.name} />
                         <div className="cart-item-details">
